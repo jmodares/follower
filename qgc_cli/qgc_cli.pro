@@ -749,7 +749,7 @@ SOURCES += \
     src/comm/QGCMAVLink.cc \
     src/comm/TCPLink.cc \
 #    src/comm/UDPLink.cc \
-#    src/main.cc \
+    src/main.cc \
     src/uas/UAS.cc \
     src/uas/UASMessageHandler.cc \
 #    src/AnalyzeView/LogDownloadController.cc \
