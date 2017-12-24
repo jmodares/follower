@@ -749,7 +749,7 @@ SOURCES += \
     src/comm/QGCMAVLink.cc \
     src/comm/TCPLink.cc \
 #    src/comm/UDPLink.cc \
-    src/main.cc \
+#    src/main.cc \
     src/uas/UAS.cc \
     src/uas/UASMessageHandler.cc \
 #    src/AnalyzeView/LogDownloadController.cc \
@@ -935,7 +935,7 @@ APMFirmwarePlugin {
         src/AutoPilotPlugins/APM/APMSensorsComponent.cc \
         src/AutoPilotPlugins/APM/APMSensorsComponentController.cc \
         src/AutoPilotPlugins/APM/APMTuningComponent.cc \
-        src/FirmwarePlugin/APM/APMFirmwarePlugin.cc \
+#        src/FirmwarePlugin/APM/APMFirmwarePlugin.cc \
         src/FirmwarePlugin/APM/APMGeoFenceManager.cc \
         src/FirmwarePlugin/APM/APMParameterMetaData.cc \
         src/FirmwarePlugin/APM/APMRallyPointManager.cc \

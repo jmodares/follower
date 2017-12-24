@@ -16,7 +16,7 @@
  */
 
 #include <QtGlobal>
-#include <QApplication>
+#include <QCoreApplication>
 #include <QIcon>
 #include <QSslSocket>
 #include <QProcessEnvironment>
@@ -26,6 +26,8 @@
 #include <QStringListModel>
 #include "QGCApplication.h"
 #include "AppMessages.h"
+
+#include "UBAgent.h"
 
 #ifndef __mobile__
     #include "QGCSerialPortInfo.h"
@@ -48,7 +50,7 @@
 #endif
 
 #include <iostream>
-#include "QGCMapEngine.h"
+//#include "QGCMapEngine.h"
 
 /* SDL does ugly things to main() */
 #ifdef main
@@ -105,7 +107,7 @@ int main(int argc, char *argv[])
 #ifndef __mobile__
     RunGuard guard("QGroundControlRunGuardKey");
     if (!guard.tryToRun()) {
-        return 0;
+//        return 0;
     }
 #endif
 
@@ -166,7 +168,7 @@ int main(int argc, char *argv[])
 #pragma warning( disable : 4930 4101 )
 #endif
 
-    Q_IMPORT_PLUGIN(QGeoServiceProviderFactoryQGC)
+//    Q_IMPORT_PLUGIN(QGeoServiceProviderFactoryQGC)
 
     bool runUnitTests = false;          // Run unit tests
 
@@ -179,9 +181,9 @@ int main(int argc, char *argv[])
 
     QString unitTestOptions;
     CmdLineOpt_t rgCmdLineOptions[] = {
-        { "--unittest",             &runUnitTests,          &unitTestOptions },
-        { "--unittest-stress",      &stressUnitTests,       &unitTestOptions },
-        { "--no-windows-assert-ui", &quietWindowsAsserts,   NULL },
+//        { "--unittest",             &runUnitTests,          &unitTestOptions },
+//        { "--unittest-stress",      &stressUnitTests,       &unitTestOptions },
+//        { "--no-windows-assert-ui", &quietWindowsAsserts,   NULL },
         // Add additional command line option flags here
     };
 
@@ -210,7 +212,7 @@ int main(int argc, char *argv[])
     Q_CHECK_PTR(app);
 
 #ifdef Q_OS_LINUX
-    QApplication::setWindowIcon(QIcon(":/res/resources/icons/qgroundcontrol.ico"));
+//    QApplication::setWindowIcon(QIcon(":/res/resources/icons/qgroundcontrol.ico"));
 #endif /* Q_OS_LINUX */
 
     // There appears to be a threading issue in qRegisterMetaType which can cause it to throw a qWarning
@@ -222,7 +224,10 @@ int main(int argc, char *argv[])
 
     app->_initCommon();
     //-- Initialize Cache System
-    getQGCMapEngine()->init();
+//    getQGCMapEngine()->init();
+
+    UBAgent* agent = new UBAgent;
+    Q_CHECK_PTR(agent);
 
     int exitCode = 0;
 
@@ -256,7 +261,7 @@ int main(int argc, char *argv[])
     app->_shutdown();
     delete app;
     //-- Shutdown Cache System
-    destroyMapEngine();
+//    destroyMapEngine();
 
     qDebug() << "After app delete";
 
