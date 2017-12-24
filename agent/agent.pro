@@ -18,5 +18,3 @@ SOURCES = \
     UBAgent.cpp \
     UBPacket.cpp \
     UBNetwork.cpp \
-    libs/APMFirmwarePlugin.cc \
-    libs/main.cc \
