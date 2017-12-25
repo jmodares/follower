@@ -15,8 +15,7 @@ HEADERS = \
     UBNetwork.h \
 
 SOURCES = \
+    main.cc \
     UBAgent.cpp \
     UBPacket.cpp \
     UBNetwork.cpp \
-    libs/APMFirmwarePlugin.cc \
-    libs/main.cc \

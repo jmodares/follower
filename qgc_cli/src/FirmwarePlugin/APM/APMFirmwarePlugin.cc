@@ -21,6 +21,8 @@
 
 #include <QTcpSocket>
 
+#include "../agent/UBConfig.h"
+
 QGC_LOGGING_CATEGORY(APMFirmwarePluginLog, "APMFirmwarePluginLog")
 
 static const QRegExp APM_COPTER_REXP("^(ArduCopter|APM:Copter)");
@@ -613,13 +615,21 @@ void APMFirmwarePlugin::initializeVehicle(Vehicle* vehicle)
         }
     } else {
         // Streams are not started automatically on APM stack
-        vehicle->requestDataStream(MAV_DATA_STREAM_RAW_SENSORS,     2);
-        vehicle->requestDataStream(MAV_DATA_STREAM_EXTENDED_STATUS, 2);
-        vehicle->requestDataStream(MAV_DATA_STREAM_RC_CHANNELS,     2);
-        vehicle->requestDataStream(MAV_DATA_STREAM_POSITION,        3);
-        vehicle->requestDataStream(MAV_DATA_STREAM_EXTRA1,          10);
-        vehicle->requestDataStream(MAV_DATA_STREAM_EXTRA2,          10);
-        vehicle->requestDataStream(MAV_DATA_STREAM_EXTRA3,          3);
+//        vehicle->requestDataStream(MAV_DATA_STREAM_RAW_SENSORS,     2);
+//        vehicle->requestDataStream(MAV_DATA_STREAM_EXTENDED_STATUS, 2);
+//        vehicle->requestDataStream(MAV_DATA_STREAM_RC_CHANNELS,     2);
+//        vehicle->requestDataStream(MAV_DATA_STREAM_POSITION,        3);
+//        vehicle->requestDataStream(MAV_DATA_STREAM_EXTRA1,          10);
+//        vehicle->requestDataStream(MAV_DATA_STREAM_EXTRA2,          10);
+//        vehicle->requestDataStream(MAV_DATA_STREAM_EXTRA3,          3);
+
+        vehicle->requestDataStream(MAV_DATA_STREAM_RAW_SENSORS,     MAV_DATA_STREAM_RAW_SENSORS_RATE);
+        vehicle->requestDataStream(MAV_DATA_STREAM_EXTENDED_STATUS, MAV_DATA_STREAM_EXTENDED_STATUS_RATE);
+        vehicle->requestDataStream(MAV_DATA_STREAM_RC_CHANNELS,     MAV_DATA_STREAM_RC_CHANNELS_RATE);
+        vehicle->requestDataStream(MAV_DATA_STREAM_POSITION,        MAV_DATA_STREAM_POSITION_RATE);
+        vehicle->requestDataStream(MAV_DATA_STREAM_EXTRA1,          MAV_DATA_STREAM_EXTRA1_RATE);
+        vehicle->requestDataStream(MAV_DATA_STREAM_EXTRA2,          MAV_DATA_STREAM_EXTRA2_RATE);
+        vehicle->requestDataStream(MAV_DATA_STREAM_EXTRA3,          MAV_DATA_STREAM_EXTRA3_RATE);
     }
 }
 
