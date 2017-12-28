@@ -45,6 +45,7 @@ void UBAgent::startAgent() {
         tcp->setAddress(QHostAddress::LocalHost);
         tcp->setPort(port);
         tcp->setDynamic();
+        tcp->setAutoConnect();
 
         link = tcp;
     } else {
@@ -53,14 +54,13 @@ void UBAgent::startAgent() {
         serial->setBaud(BAUD_RATE);
         serial->setPortName(SERIAL_PORT);
         serial->setDynamic();
+        serial->setAutoConnect();
 
         link = serial;
     }
 
     LinkManager* linkManager = qgcApp()->toolbox()->linkManager();
-    SharedLinkConfigurationPointer config = linkManager->addConfiguration(link);
-
-    linkManager->createConnectedLink(config);
+    linkManager->addConfiguration(link);
     linkManager->linkConfigurationsChanged();
 
     connect(qgcApp()->toolbox()->multiVehicleManager(), SIGNAL(vehicleAdded(Vehicle*)), this, SLOT(vehicleAddedEvent(Vehicle*)));
