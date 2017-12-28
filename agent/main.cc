@@ -211,6 +211,9 @@ int main(int argc, char *argv[])
     QGCApplication* app = new QGCApplication(argc, argv, runUnitTests);
     Q_CHECK_PTR(app);
 
+    UBAgent* agent = new UBAgent;
+    Q_CHECK_PTR(agent);
+
 #ifdef Q_OS_LINUX
 //    QApplication::setWindowIcon(QIcon(":/res/resources/icons/qgroundcontrol.ico"));
 #endif /* Q_OS_LINUX */
@@ -225,9 +228,6 @@ int main(int argc, char *argv[])
     app->_initCommon();
     //-- Initialize Cache System
 //    getQGCMapEngine()->init();
-
-    UBAgent* agent = new UBAgent;
-    Q_CHECK_PTR(agent);
 
     int exitCode = 0;
 

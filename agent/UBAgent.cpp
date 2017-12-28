@@ -61,6 +61,7 @@ void UBAgent::startAgent() {
     SharedLinkConfigurationPointer config = linkManager->addConfiguration(link);
 
     linkManager->createConnectedLink(config);
+    linkManager->linkConfigurationsChanged();
 
     connect(qgcApp()->toolbox()->multiVehicleManager(), SIGNAL(vehicleAdded(Vehicle*)), this, SLOT(vehicleAddedEvent(Vehicle*)));
     connect(qgcApp()->toolbox()->multiVehicleManager(), SIGNAL(vehicleRemoved(Vehicle*)), this, SLOT(vehicleRemovedEvent(Vehicle*)));
