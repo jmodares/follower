@@ -9,8 +9,6 @@ class UBNetwork : public QTcpSocket
 public:
     explicit UBNetwork(QTcpSocket *parent = 0);
 
-private:
-
 signals:
     void dataReady(quint8 srcID, QByteArray data);
 
