@@ -203,10 +203,10 @@ void UBAgent::stageMission() {
         return;
     }
 
-    QGeoCoordinate _pos = m_mission_data.pos.atDistanceAndAzimuth(10, m_mission_data.pos.azimuthTo(pos));
+    QGeoCoordinate _pos = m_mission_data.pos.atDistanceAndAzimuth(15, m_mission_data.pos.azimuthTo(pos));
     _pos.setAltitude(m_mission_data.pos.altitude());
 
-    if (pos.distanceTo(_pos) < POINT_ZONE) {
+    if (pos.distanceTo(_pos) < POINT_ZONE && abs(pos.altitude() - _pos.altitude()) < POINT_ZONE) {
         return;
     }
 
