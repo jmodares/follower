@@ -21,8 +21,6 @@
 
 #include <QTcpSocket>
 
-#include "../agent/UBConfig.h"
-
 QGC_LOGGING_CATEGORY(APMFirmwarePluginLog, "APMFirmwarePluginLog")
 
 static const QRegExp APM_COPTER_REXP("^(ArduCopter|APM:Copter)");
