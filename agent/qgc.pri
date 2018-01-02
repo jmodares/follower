@@ -1,30 +1,27 @@
+#
+# QGroundControl Library
+#
+
 QGC_DIR = $$PWD/../qgc_cli
 
-#CONFIG += $$fromfile(qgroundcontrol.pro, CONFIG)
-include(qgc_cli.pro)
+#CONFIG += $$fromfile($$QGC_DIR/qgc_cli.pro, CONFIG)
 
-SOURCES = \
-HEADERS = \
-#FORMS = \
-#RESOURCES = \
-
-LIST = $$FORMS
-for(ITEM, LIST) : FORMS -= $$ITEM
-
-LIST = $$RESOURCES
-for(ITEM, LIST) : RESOURCES -= $$ITEM
+BASETRG = $$TARGET
+BASETPL = $$TEMPLATE
+BASESRC = $$SOURCES
+BASEHDR = $$HEADERS
+BASEFRM = $$FORMS
+BASERES = $$RESOURCES
+include($$QGC_DIR/qgc_cli.pro)
+TARGET = $$BASETRG
+TEMPLATE = $$BASETPL
+SOURCES = $$BASESRC
+HEADERS = $$BASEHDR
+FORMS = $$BASEFRM
+RESOURCES = $$BASERES
 
 LIST = $$INCLUDEPATH
 for(ITEM, LIST) : INCLUDEPATH += $$QGC_DIR/$$ITEM
-
-MAVLINKPATH_REL = libs/mavlink/include/mavlink/v2.0
-MAVLINKPATH = $$QGC_DIR/$$MAVLINKPATH_REL
-MAVLINK_CONF = ardupilotmega
-DEFINES += MAVLINK_NO_DATA
-
-INCLUDEPATH += $$MAVLINKPATH
-INCLUDEPATH += $$MAVLINKPATH/$$MAVLINK_CONF
-DEFINES += $$sprintf('QGC_USE_%1_MESSAGES', $$upper($$MAVLINK_CONF))
 
 DebugBuild {
     QGC_LIB = $$OUT_PWD/../qgc_cli/debug
