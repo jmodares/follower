@@ -39,23 +39,20 @@ void UBAgent::startAgent() {
     if (id) {
         quint32 port = 10 * id + STL_PORT + 3;
         TCPConfiguration* tcp = new TCPConfiguration(tr("TCP Port %1").arg(port));
-
         tcp->setAddress(QHostAddress::LocalHost);
         tcp->setPort(port);
-        tcp->setDynamic();
-        tcp->setAutoConnect();
 
         link = tcp;
     } else {
         SerialConfiguration* serial = new SerialConfiguration("Serial Port");
-
         serial->setBaud(BAUD_RATE);
         serial->setPortName(SERIAL_PORT);
-        serial->setDynamic();
-        serial->setAutoConnect();
 
         link = serial;
     }
+
+    link->setDynamic();
+    link->setAutoConnect();
 
     LinkManager* linkManager = qgcApp()->toolbox()->linkManager();
     linkManager->addConfiguration(link);
