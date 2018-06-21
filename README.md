@@ -18,17 +18,7 @@ In this mission, MAV `i + 1` follows 10 meters behind MAV `i`. This is accomplis
 ## Build
 The Follower mission is the default mission in the [UB-ANC Emulator](https://github.com/jmodares/UB-ANC-Emulator). It is built automatically when you build the emulator.
 
-If you need to build it independently of the UB-ANC Emulator, then  follow the build instructions for the [UB-ANC Agent](https://github.com/jmodares/UB-ANC-Agent), but replace the line
-
-```
-git clone https://github.com/jmodares/UB-ANC-Agent
-```
-
-with
-
-```
-git clone https://github.com/jmodares/follower.git
-```
+If you need to build it independently of the UB-ANC Emulator, then adapt the build instructions for the [UB-ANC Agent](https://github.com/jmodares/UB-ANC-Agent).
 
 ## Run in the UB-ANC Emulator
 Assuming that you have just built the UB-ANC Emulator, you can run the Follower mission with three agents as follows:
