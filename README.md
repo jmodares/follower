@@ -36,7 +36,7 @@ This will launch the emulator using QGroundControl as the GUI. Note that you can
 [XXX] Info: EKF2 IMU1 is using GPS
 ```
 
-Once you observe those messages, select the vehicles one-by-one from the *vehicle menu* and change their modes from **Stabilize** to **Guided** using the *flight mode* menu. After all the vehicles are in Guided mode, select *Vehicle 1*. Click **Disarmed** to arm Vehicle 1. You will be prompted to confirm that you want to arm the vehicle. After confirming, *Vehicle 1*'s status will change to **Armed** and it will takeoff. Click on the map to set a *Waypoint* for it to fly to (this will also require confirmation). The other agents should follow behind.
+Once you observe those messages, select the vehicles one-by-one from the *vehicle menu* and change their modes from **Stabilize** to **Guided** using the *flight mode* menu. After all the vehicles are in Guided mode, select *Vehicle 1*. Click **Disarmed** to arm Vehicle 1. You will be prompted to confirm that you want to arm the vehicle. After confirming, *Vehicle 1*'s status will change to **Armed**. Now click the **Takeoff** button and confirm that you want the vehicle to takeoff. After confirming, *Vehicle 1* will takeoff. Click on the map to set a *Waypoint* for it to fly to (this will also require confirmation). The other agents should follow behind.
 
 You can plan more sophisticated flight paths using the [Plan View](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html).
 
