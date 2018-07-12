@@ -22,7 +22,6 @@ If you need to build it independently of the UB-ANC Emulator, then adapt the bui
 
 ## Run in the UB-ANC Emulator
 Assuming that you have just built the UB-ANC Emulator, you can run the Follower mission with three agents as follows:
-
 ```
 cd ~/ub-anc/emulator
 ./setup_objects.sh 3
@@ -30,7 +29,6 @@ cd ~/ub-anc/emulator
 ```
 
 This will launch the emulator using QGroundControl as the GUI. Note that you can not start the mission until you receive the following messages from the drones (which are accessible by clicking on the [Vehicle Messages](https://docs.qgroundcontrol.com/en/toolbar/toolbar.html) status icon in QGroundControl):
-
 ```
 [XXX] Info: EKF2 IMU0 is using GPS
 [XXX] Info: EKF2 IMU1 is using GPS
@@ -43,4 +41,3 @@ You can plan more sophisticated flight paths using the [Plan View](https://docs.
 **Exercise 1:** Using Plan View, create a flight plan with four  waypoints and have the drone land at the last waypoint. Load your plan on **Vehicle 1** and execute it.
 
 **Exercise 2:** Relaunch the emulator to run a **10** drone Follower mission.
-
